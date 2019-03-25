@@ -1,0 +1,13 @@
+ClickAndMortar\SimpleItemBundle\Entity\SimpleItem:
+    properties:
+        label:
+            - NotBlank: ~
+        value:
+            - NotBlank: ~
+
+ClickAndMortar\SimpleItemBundle\Entity\SimpleList:
+    properties:
+        label:
+            - NotBlank: ~
+        value:
+            - NotBlank: ~

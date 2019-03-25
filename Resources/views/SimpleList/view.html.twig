@@ -1,0 +1,78 @@
+{% extends 'OroUIBundle:actions:view.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+{% import 'OroDataGridBundle::macros.html.twig' as dataGrid %}
+{% oro_title_set({params : {"%label%": entity.label }}) %}
+
+{% block navButtons %}
+    {{ UI.editButton({
+        'path' : path('candm_simpleitem_simplelist_update', { id: entity.id }),
+        'entity_label': 'clickandmortar.simpleitem.simplelist.entity_label'|trans
+    }) }}
+
+    {{ UI.deleteButton({
+        'dataUrl': path('candm_simpleitem_api_delete_simplelist', {'id': entity.id}),
+        'dataRedirect': path('candm_simpleitem_simplelist_index'),
+        'aCss': 'no-hash remove-button',
+        'id': 'btn-remove-simplelist',
+        'dataId': entity.id,
+        'entity_label': 'clickandmortar.simpleitem.simplelist.entity_label'|trans,
+    }) }}
+
+    {{ UI.addButton({
+        'path': path('candm_simpleitem_simplelist_create'),
+        'entity_label': 'clickandmortar.simpleitem.simplelist.entity_label'|trans,
+        'aCss': 'btn-group'
+    }) }}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+    'entity':      entity,
+    'indexPath':   path('candm_simpleitem_simplelist_index'),
+    'indexLabel': 'clickandmortar.simpleitem.simplelist.entity_plural_label'|trans,
+    'entityTitle': entity.label
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set data %}
+        <div class="widget-content">
+            <div class="row-fluid form-horizontal">
+                <div class="responsive-block">
+                    {{ UI.renderProperty('clickandmortar.simpleitem.simplelist.label.label'|trans, entity.label) }}
+                    {{ UI.renderProperty('clickandmortar.simpleitem.simplelist.value.label'|trans, entity.value) }}
+                </div>
+            </div>
+        </div>
+    {% endset %}
+
+    {% set dataBlocks = [
+        {
+            'title': 'General'|trans,
+            'class': 'active',
+            'subblocks': [
+                {
+                    'data' : [data]
+                }
+            ]
+        }
+    ] %}
+
+    {% set dataBlocks = dataBlocks|merge([
+        {
+        'title' : 'clickandmortar.simpleitem.entity_plural_label'|trans,
+        'subblocks': [
+            {
+                'title' : '',
+                'useSpan': false,
+                'data' : [dataGrid.renderGrid('candm_simpleitem-simpleitems-grid', {simplelist_id: entity.id}, { cssClass: 'inner-grid' })]
+            }
+        ]
+        }
+    ]) %}
+
+    {% set id = 'simplelist-view' %}
+    {% set data = { 'dataBlocks': dataBlocks } %}
+    {{ parent() }}
+{% endblock content_data %}

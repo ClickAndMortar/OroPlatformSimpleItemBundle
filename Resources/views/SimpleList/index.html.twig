@@ -1,0 +1,21 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+
+{% set gridName = 'candm_simpleitem-simplelists-grid' %}
+{% set pageTitle = 'clickandmortar.simpleitem.simplelist.entity_plural_label'|trans %}
+
+{% block navButtons %}
+    {% include 'OroImportExportBundle:ImportExport:buttons.html.twig' with {
+        entity_class: entity_class,
+        exportProcessor: 'candm_simpleitem_simplelist',
+        exportTemplateProcessor: 'candm_simpleitem_simplelist',
+        importProcessor: 'candm_simpleitem_simplelist',
+        dataGridName: gridName
+    } %}
+
+    <div class="btn-group">
+        {{ UI.addButton({
+            'path': path('candm_simpleitem_simplelist_create'),
+            'entity_label': 'clickandmortar.simpleitem.simplelist.entity_label'|trans,
+        }) }}
+    </div>
+{% endblock %}

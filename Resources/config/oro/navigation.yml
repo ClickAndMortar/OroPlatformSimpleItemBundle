@@ -1,0 +1,6 @@
+navigation:
+    titles:
+        candm_simpleitem_simplelist_index: ~
+        candm_simpleitem_simplelist_view: '%label% - oro.ui.view'
+        candm_simpleitem_simplelist_update: '%label% - oro.ui.edit'
+        candm_simpleitem_simplelist_create: 'oro.ui.create_entity'

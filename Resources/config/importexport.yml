@@ -1,0 +1,46 @@
+parameters:
+    candm_simpleitem.importexport.template_fixture.simplelist.class: ClickAndMortar\SimpleItemBundle\ImportExport\TemplateFixture\SimpleListFixture
+
+services:
+    # Converter
+    candm_simpleitem.importexport.data_converter:
+        parent: oro_importexport.data_converter.configurable
+
+    candm_simpleitem.importexport.template_fixture.data_converter:
+        parent: oro_importexport.data_converter.template_fixture.configurable
+
+    # Template fixture
+    candm_simpleitem.importexport.template_fixture.simplelist:
+        class: %candm_simpleitem.importexport.template_fixture.simplelist.class%
+        tags:
+            - { name: oro_importexport.template_fixture }
+
+    # Strategy
+    candm_simpleitem.importexport.strategy.add_or_replace:
+        parent: oro_importexport.strategy.configurable_add_or_replace
+
+    # Import processor
+    candm_simpleitem.importexport.processor.import.simplelist:
+        parent: oro_importexport.processor.import_abstract
+        calls:
+            - [setDataConverter, ['@candm_simpleitem.importexport.data_converter']]
+            - [setStrategy, ['@candm_simpleitem.importexport.strategy.add_or_replace']]
+        tags:
+            - { name: oro_importexport.processor, type: import, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }
+            - { name: oro_importexport.processor, type: import_validation, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }
+
+    # Export processor
+    candm_simpleitem.importexport.processor.export.simplelist:
+        parent: oro_importexport.processor.export_abstract
+        calls:
+            - [setDataConverter, ['@candm_simpleitem.importexport.data_converter']]
+        tags:
+            - { name: oro_importexport.processor, type: export, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }
+
+    # Export template
+    candm_simpleitem.importexport.processor.export_template.simplelist:
+        parent: oro_importexport.processor.export_abstract
+        calls:
+            - [setDataConverter, ['@candm_simpleitem.importexport.template_fixture.data_converter']]
+        tags:
+            - { name: oro_importexport.processor, type: export_template, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }

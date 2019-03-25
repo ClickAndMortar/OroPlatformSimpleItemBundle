@@ -1,0 +1,16 @@
+{% macro renderSimpleItemProperty(title, simpleItem) %}
+    {% import 'OroUIBundle::macros.html.twig' as UI %}
+    <div class="control-group attribute-row">
+        <label class="control-label">{{ title }}</label>
+        <div class="controls">
+            <div class="control-label">
+                {{ simpleItem|raw }}
+                {% if simpleItem is not null and simpleItem.image is not null %}
+                    <div class="visual" style="vertical-align: top;display: inline-block;">
+                        {{ oro_image_view(simpleItem, simpleItem.image, simpleItem, 'image') }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

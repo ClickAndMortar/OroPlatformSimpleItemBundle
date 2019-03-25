@@ -1,0 +1,116 @@
+datagrids:
+    candm_simpleitem-simpleitems-grid:
+        source:
+            type: orm
+            query:
+                select:
+                    - si.id
+                    - si.label
+                    - si.value
+                from:
+                    - { table: ClickAndMortarSimpleItemBundle:SimpleItem, alias: si }
+                where:
+                    and:
+                        - IDENTITY(si.list) = :simplelist_id
+            bind_parameters:
+                - simplelist_id
+        columns:
+            label:
+                label: clickandmortar.simpleitem.label.label
+            value:
+                label: clickandmortar.simpleitem.value.label
+        sorters:
+            columns:
+                label:
+                    data_name: si.label
+                value:
+                    data_name: si.value
+        filters:
+            columns:
+                label:
+                    type: string
+                    data_name: si.label
+                value:
+                    type: string
+                    data_name: si.value
+        properties:
+            id: ~
+            update_link:
+                type: url
+                route: candm_simpleitem_simpleitem_update
+                params: [ id ]
+            delete_link:
+                type: url
+                route: candm_simpleitem_api_delete_simpleitem
+                params: [ id, simplelist_id ]
+        actions:
+            edit:
+                type: navigate
+                label: oro.grid.action.edit
+                icon: edit
+                link: update_link
+            delete:
+                type: delete
+                label: oro.grid.action.delete
+                icon: trash
+                link: delete_link
+    candm_simpleitem-simplelists-grid:
+            source:
+                type: orm
+                query:
+                    select:
+                        - sl.id
+                        - sl.label
+                        - sl.value
+                    from:
+                        - { table: ClickAndMortarSimpleItemBundle:SimpleList, alias: sl }
+            columns:
+                label:
+                    label: clickandmortar.simpleitem.label.label
+                value:
+                    label: clickandmortar.simpleitem.value.label
+            sorters:
+                columns:
+                    label:
+                        data_name: sl.label
+                    value:
+                        data_name: sl.value
+            filters:
+                columns:
+                    label:
+                        type: string
+                        data_name: sl.label
+                    value:
+                        type: string
+                        data_name: sl.value
+            properties:
+                id: ~
+                view_link:
+                    type:  url
+                    route: candm_simpleitem_simplelist_view
+                    params: [ id ]
+                update_link:
+                    type: url
+                    route: candm_simpleitem_simplelist_update
+                    params: [ id ]
+                delete_link:
+                    type: url
+                    route: candm_simpleitem_api_delete_simplelist
+                    params: [ id ]
+            actions:
+                view:
+                    type: navigate
+                    label: oro.grid.action.view
+                    link: view_link
+                    icon: eye
+                    rowAction: true
+                edit:
+                    type: navigate
+                    label: oro.grid.action.edit
+                    icon: edit
+                    link: update_link
+                delete:
+                    type: delete
+                    label: oro.grid.action.delete
+                    icon: trash
+                    link: delete_link

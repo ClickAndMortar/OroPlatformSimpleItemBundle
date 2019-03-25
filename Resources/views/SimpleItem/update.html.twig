@@ -1,0 +1,63 @@
+{% extends 'OroUIBundle:actions:update.html.twig' %}
+{% form_theme form with 'OroFormBundle:Form:fields.html.twig' %}
+
+{% set simpleitem = form.vars.value %}
+
+{% if simpleitem.id %}
+    {% set formAction = path('candm_simpleitem_simpleitem_update', { 'id': simpleitem.id }) %}
+{% else %}
+    {% set formAction = path('candm_simpleitem_simpleitem_create') %}
+{% endif %}
+
+{% block navButtons %}
+    {% if simpleitem.id %}
+            {{ UI.cancelButton(path('candm_simpleitem_simplelist_view', {'id': simpleitem.list.id })) }}
+        {% else %}
+            {{ UI.cancelButton(path('candm_simpleitem_simplelist_index')) }}
+    {% endif %}
+
+    {% set saveButtonsHtml = '' %}
+    {% if simpleitem.id %}
+        {% set saveButtonsHtml = saveButtonsHtml ~ UI.saveAndStayButton() %}
+    {% endif %}
+    {% set saveButtonsHtml = saveButtonsHtml ~ UI.saveAndCloseButton() %}
+    {{ UI.dropdownSaveButton({'html': saveButtonsHtml}) }}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% if simpleitem.id %}
+        {% set breadcrumbs = {
+        'entity': simpleitem,
+        'indexPath': path('candm_simpleitem_simpleitem_index'),
+        'indexLabel': 'clickandmortar.simpleitem.entity_plural_label'|trans,
+        'entityTitle': simpleitem.label
+        } %}
+        {{ parent() }}
+    {% else %}
+        {% set title = 'oro.ui.create_entity'|trans({ '%entityName%': 'clickandmortar.simpleitem.label.label'|trans }) %}
+        {{ include('OroUIBundle::page_title_block.html.twig', { title: title }) }}
+        {% endif %}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set id = 'simpleitem-edit' %}
+    {% set dataBlocks = [{
+        'title': 'General'|trans,
+        'class': 'active',
+        'subblocks': [{
+            'title': '',
+            'data': [
+            form_row(form.label),
+            form_row(form.value),
+            form_row(form.image),
+            ]
+        }]
+    }] %}
+
+    {% set data = {
+        'formErrors': form_errors(form) ? form_errors(form) : null,
+        'dataBlocks': dataBlocks,
+    } %}
+
+    {{ parent() }}
+{% endblock content_data %}

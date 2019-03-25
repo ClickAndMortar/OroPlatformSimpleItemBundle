@@ -1,0 +1,30 @@
+parameters:
+    # API Managers
+    candm_simpleitem.simpleitem.manager.api.class:  Oro\Bundle\SoapBundle\Entity\Manager\ApiEntityManager
+    candm_simpleitem.simpleitem.entity.class: ClickAndMortar\SimpleItemBundle\Entity\SimpleItem
+    candm_simpleitem.simplelist.entity.class: ClickAndMortar\SimpleItemBundle\Entity\SimpleList
+
+    # Managers
+    candm_simpleitem.simpleitem.manager.class: ClickAndMortar\SimpleItemBundle\Entity\Manager\SimpleItemManager
+
+services:
+    # API Managers
+    candm_simpleitem.simpleitem.manager.api:
+        class: %candm_simpleitem.simpleitem.manager.api.class%
+        parent: oro_soap.manager.entity_manager.abstract
+        arguments:
+            - %candm_simpleitem.simpleitem.entity.class%
+            - '@doctrine.orm.entity_manager'
+    candm_simpleitem.simplelist.manager.api:
+        class: %candm_simpleitem.simpleitem.manager.api.class%
+        parent: oro_soap.manager.entity_manager.abstract
+        arguments:
+            - %candm_simpleitem.simplelist.entity.class%
+            - '@doctrine.orm.entity_manager'
+
+    # Managers
+    candm_simpleitem.simpleitem.manager:
+        class: %candm_simpleitem.simpleitem.manager.class%
+        arguments:
+            - %candm_simpleitem.simpleitem.entity.class%
+            - '@doctrine.orm.entity_manager'

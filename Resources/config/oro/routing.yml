@@ -1,0 +1,24 @@
+candm_simpleitem:
+    resource:     "@ClickAndMortarSimpleItemBundle/Controller"
+    type:         annotation
+    prefix:       /
+
+candm_simpleitem.api.simpleitem:
+    resource: '@ClickAndMortarSimpleItemBundle/Controller/Api/Rest/SimpleItemController.php'
+    type: rest
+    prefix: api/rest/{version}/
+    requirements:
+        version: latest|v1
+        _format:  json
+    defaults:
+        version: latest
+
+candm_simpleitem.api.simplelist:
+    resource: '@ClickAndMortarSimpleItemBundle/Controller/Api/Rest/SimpleListController.php'
+    type: rest
+    prefix: api/rest/{version}/
+    requirements:
+        version: latest|v1
+        _format:  json
+    defaults:
+        version: latest

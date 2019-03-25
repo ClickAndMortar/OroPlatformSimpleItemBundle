@@ -1,0 +1,32 @@
+Saved: "Enregistré avec succès !"
+
+clickandmortar:
+    simpleitem:
+        entity_label: Élément
+        entity_plural_label: Éléments
+        id:
+            label: Identifiant
+        label:
+            label: Libellé
+        value:
+            label: Valeur
+        image:
+            label: Visuel
+        list:
+            label: Liste
+
+        simplelist:
+            entity_label: Liste
+            entity_plural_label: Listes
+            id:
+                label: Identifiant
+            label:
+                label: Libellé
+            value:
+                label: Valeur
+            items:
+                label: Éléments
+            custom:
+                actions:
+                    add_simpleitem: Ajouter un élément
+                    add_simpleitem_save_sucess: Élément ajouté avec succès !
