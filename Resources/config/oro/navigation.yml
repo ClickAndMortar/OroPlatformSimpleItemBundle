@@ -1,4 +1,28 @@
 navigation:
+    menu_config:
+        items:
+            # Main tab
+            lists_tab:
+                label: 'candm.menu.lists_tab.label'
+                uri: '#'
+                position: 10
+
+            # Sub elements
+            lists:
+                label: 'candm.menu.lists.label'
+                uri: '#'
+            lists_list:
+                label: 'candm.menu.lists_list.label'
+                route: candm_simpleitem_simplelist_index
+        tree:
+            application_menu:
+                children:
+                    lists_tab:
+                        children:
+                            lists:
+                                children:
+                                    lists_list: ~
+
     titles:
         candm_simpleitem_simplelist_index: ~
         candm_simpleitem_simplelist_view: '%label% - oro.ui.view'

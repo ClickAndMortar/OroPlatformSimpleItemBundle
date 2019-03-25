@@ -1,6 +1,14 @@
 Saved: "Enregistré avec succès !"
 
 clickandmortar:
+    menu:
+        lists_tab:
+            label: Listes
+        lists:
+            label: Listes éditables
+        lists_list:
+            label: Gestion des listes éditables
+
     simpleitem:
         entity_label: Élément
         entity_plural_label: Éléments
