@@ -1,0 +1,17 @@
+{
+    "name": "clickandmortar/oro-platform-simple-item-bundle",
+    "description": "Simple Item bundle for OroPlatform / OroCRM projects",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simon CARRE",
+            "email": "simon.carre@clickandmortar.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ClickAndMortar\\SimpleItemBundle\\": ""
+        }
+    }
+}
