@@ -11,18 +11,19 @@ candm:
 
 clickandmortar:
     simpleitem:
-        entity_label: Élément
-        entity_plural_label: Éléments
-        id:
-            label: Identifiant
-        label:
-            label: Libellé
-        value:
-            label: Valeur
-        image:
-            label: Visuel
-        list:
-            label: Liste
+        simpleitem:
+            entity_label: Élément
+            entity_plural_label: Éléments
+            id:
+                label: Identifiant
+            label:
+                label: Libellé
+            value:
+                label: Valeur
+            image:
+                label: Visuel
+            list:
+                label: Liste
 
         simplelist:
             entity_label: Liste

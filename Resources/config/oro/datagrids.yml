@@ -16,9 +16,9 @@ datagrids:
                 - simplelist_id
         columns:
             label:
-                label: clickandmortar.simpleitem.label.label
+                label: clickandmortar.simpleitem.simpleitem.label.label
             value:
-                label: clickandmortar.simpleitem.value.label
+                label: clickandmortar.simpleitem.simpleitem.value.label
         sorters:
             columns:
                 label:
@@ -35,25 +35,17 @@ datagrids:
                     data_name: si.value
         properties:
             id: ~
-            update_link:
-                type: url
-                route: candm_simpleitem_simpleitem_update
-                params: [ id ]
             delete_link:
                 type: url
                 route: candm_simpleitem_api_delete_simpleitem
-                params: [ id, simplelist_id ]
+                params: [ id ]
         actions:
-            edit:
-                type: navigate
-                label: oro.grid.action.edit
-                icon: edit
-                link: update_link
             delete:
                 type: delete
                 label: oro.grid.action.delete
                 icon: trash
                 link: delete_link
+
     candm_simpleitem-simplelists-grid:
             source:
                 type: orm
@@ -66,9 +58,9 @@ datagrids:
                         - { table: ClickAndMortarSimpleItemBundle:SimpleList, alias: sl }
             columns:
                 label:
-                    label: clickandmortar.simpleitem.label.label
+                    label: clickandmortar.simpleitem.simpleitem.label.label
                 value:
-                    label: clickandmortar.simpleitem.value.label
+                    label: clickandmortar.simpleitem.simpleitem.value.label
             sorters:
                 columns:
                     label:
