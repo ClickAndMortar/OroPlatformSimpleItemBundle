@@ -14,26 +14,12 @@ $ composer require clickandmortar/oro-platform-simple-item-bundle
 
 ### Enable the Bundle
 
-Enable the bundle by adding it to the list of registered bundles
-in the `AppKernel.php` file of your project:
+Bundle is enabled automatically by `bundles.yml` file.
+Run only following commands:
 
-```php
-<?php
-// AppKernel.php
-
-// ...
-class AppKernel extends Kernel
-{
-    public function registerBundles()
-    {
-        $bundles = [
-            // ...
-            new ClickAndMortar\SimpleItemBundle\ClickAndMortarSimpleItemBundle(),
-        ];
-
-        // ...
-    }
-
-    // ...
-}
+```
+php bin/console cache:clear
+php bin/console doctrine:schema:update --force
+php bin/console oro:entity-config:update --filter="ClickAndMortar*" --force
+php bin/console oro:migration:load --force --bundles="ClickAndMortarSimpleItemBundle"
 ```
