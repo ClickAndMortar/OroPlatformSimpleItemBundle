@@ -93,7 +93,7 @@ class SimpleListController extends Controller
      */
     protected function update(SimpleList $simpleList, Request $request)
     {
-        $form = $this->createForm(new SimpleListType(), $simpleList);
+        $form = $this->createForm(SimpleListType::class, $simpleList);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

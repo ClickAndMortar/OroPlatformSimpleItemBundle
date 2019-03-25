@@ -76,7 +76,7 @@ class SimpleItemController extends Controller
      */
     protected function update(SimpleItem $simpleItem, Request $request)
     {
-        $form = $this->createForm(new SimpleItemType(), $simpleItem);
+        $form = $this->createForm(SimpleItemType::class, $simpleItem);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

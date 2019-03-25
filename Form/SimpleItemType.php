@@ -2,7 +2,9 @@
 
 namespace ClickAndMortar\SimpleItemBundle\Form;
 
+use Oro\Bundle\AttachmentBundle\Form\Type\FileType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -28,14 +30,14 @@ class SimpleItemType extends AbstractType
     {
         $builder
             ->add('label',
-                'text',
+                TextType::class,
                 [
                     'label'    => 'clickandmortar.simpleitem.label.label',
                     'required' => true,
                 ]
             )
             ->add('value',
-                'text',
+                TextType::class,
                 [
                     'label'    => 'clickandmortar.simpleitem.value.label',
                     'required' => true,
@@ -43,7 +45,7 @@ class SimpleItemType extends AbstractType
             )
             ->add(
                 'image',
-                'oro_file',
+                FileType::class,
                 [
                     'label'       => 'clickandmortar.simpleitem.image.label',
                     'required'    => false,
