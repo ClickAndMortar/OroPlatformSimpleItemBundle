@@ -16,9 +16,9 @@ datagrids:
                 - simplelist_id
         columns:
             label:
-                label: clickandmortar.simpleitem.simpleitem.label.label
+                label: clickandmortar.simpleitem.label.label
             value:
-                label: clickandmortar.simpleitem.simpleitem.value.label
+                label: clickandmortar.simpleitem.value.label
         sorters:
             columns:
                 label:
@@ -58,9 +58,9 @@ datagrids:
                         - { table: ClickAndMortarSimpleItemBundle:SimpleList, alias: sl }
             columns:
                 label:
-                    label: clickandmortar.simpleitem.simpleitem.label.label
+                    label: clickandmortar.simpleitem.label.label
                 value:
-                    label: clickandmortar.simpleitem.simpleitem.value.label
+                    label: clickandmortar.simpleitem.value.label
             sorters:
                 columns:
                     label:

@@ -6,8 +6,10 @@ use ClickAndMortar\SimpleItemBundle\Entity\SimpleItem;
 use Oro\Bundle\AttachmentBundle\Entity\File;
 
 /**
- * @method File getImage()
- * @method SimpleItem setImage(File $image)
+ * Simple item extend
+ *
+ * @author  Simon CARRE <simon.carre@clickandmortar.fr>
+ * @package ClickAndMortar\SimpleItemBundle\Model
  */
 class ExtendSimpleItem
 {

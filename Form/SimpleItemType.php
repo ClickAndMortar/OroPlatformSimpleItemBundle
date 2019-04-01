@@ -32,24 +32,15 @@ class SimpleItemType extends AbstractType
             ->add('label',
                 TextType::class,
                 [
-                    'label'    => 'clickandmortar.simpleitem.simpleitem.label.label',
+                    'label'    => 'clickandmortar.simpleitem.label.label',
                     'required' => true,
                 ]
             )
             ->add('value',
                 TextType::class,
                 [
-                    'label'    => 'clickandmortar.simpleitem.simpleitem.value.label',
+                    'label'    => 'clickandmortar.simpleitem.value.label',
                     'required' => true,
-                ]
-            )
-            ->add(
-                'image',
-                FileType::class,
-                [
-                    'label'       => 'clickandmortar.simpleitem.simpleitem.image.label',
-                    'required'    => false,
-                    'allowDelete' => true,
                 ]
             );
     }

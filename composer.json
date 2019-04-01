@@ -9,9 +9,6 @@
             "email": "simon.carre@clickandmortar.fr"
         }
     ],
-    "require": {
-        "oro/platform": "3.1.*"
-    },
     "autoload": {
         "psr-4": {
             "ClickAndMortar\\SimpleItemBundle\\": ""
