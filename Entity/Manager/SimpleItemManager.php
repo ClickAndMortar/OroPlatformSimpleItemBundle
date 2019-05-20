@@ -74,6 +74,22 @@ class SimpleItemManager
     }
 
     /**
+     * Get unique by $listValue and $itemLabel
+     *
+     * @param string $listValue
+     * @param string $itemLabel
+     *
+     * @return SimpleItem
+     */
+    public function getUniqueByListValueAndItemLabel($listValue, $itemLabel)
+    {
+        /** @var SimpleItemRepository $repository */
+        $repository = $this->getRepository();
+
+        return $repository->getByListValue($listValue, $itemLabel, true);
+    }
+
+    /**
      * Get item by value
      *
      * @param string $value

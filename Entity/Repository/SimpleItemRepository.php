@@ -18,10 +18,11 @@ class SimpleItemRepository extends EntityRepository
      *
      * @param string        $listValue
      * @param string | null $listItemValue
+     * @param boolean       $useLabel
      *
      * @return SimpleItem[] | SimpleItem
      */
-    public function getByListValue($listValue, $listItemValue = null)
+    public function getByListValue($listValue, $listItemValue = null, $useLabel = false)
     {
         $queryBuilder = $this->createQueryBuilder('si')
                              ->join('si.list', 'sl')
@@ -30,8 +31,13 @@ class SimpleItemRepository extends EntityRepository
                              ->setParameter('listValue', $listValue);
 
         if ($listItemValue !== null) {
-            return $queryBuilder->andWhere('si.value = :listItemValue')
-                                ->setParameter('listItemValue', $listItemValue)
+            if ($useLabel) {
+                $queryBuilder->andWhere('si.label = :listItemValue');
+            } else {
+                $queryBuilder->andWhere('si.value = :listItemValue');
+            }
+
+            return $queryBuilder->setParameter('listItemValue', $listItemValue)
                                 ->setMaxResults(1)
                                 ->getQuery()
                                 ->getOneOrNullResult();
