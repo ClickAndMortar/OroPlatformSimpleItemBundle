@@ -15,7 +15,7 @@ use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\ConfigField;
  * @author  Simon CARRE <simon.carre@clickandmortar.fr>
  * @package ClickAndMortar\SimpleItemBundle\Entity
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="ClickAndMortar\SimpleItemBundle\Entity\Repository\SimpleListRepository")
  * @ORM\Table(name="candm_simpleitem_simplelist")
  * @UniqueEntity("value")
  * @Config(

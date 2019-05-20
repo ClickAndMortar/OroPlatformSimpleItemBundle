@@ -6,6 +6,7 @@ parameters:
 
     # Managers
     candm_simpleitem.simpleitem.manager.class: ClickAndMortar\SimpleItemBundle\Entity\Manager\SimpleItemManager
+    candm_simpleitem.simplelist.manager.class: ClickAndMortar\SimpleItemBundle\Entity\Manager\SimpleListManager
 
 services:
     # API Managers
@@ -28,3 +29,8 @@ services:
         arguments:
             - %candm_simpleitem.simpleitem.entity.class%
             - '@doctrine.orm.entity_manager'
+    candm_simpleitem.simplelist.manager:
+        class: %candm_simpleitem.simplelist.manager.class%
+        arguments:
+        - %candm_simpleitem.simplelist.entity.class%
+        - '@doctrine.orm.entity_manager'
