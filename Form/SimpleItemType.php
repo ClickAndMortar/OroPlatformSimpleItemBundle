@@ -35,13 +35,6 @@ class SimpleItemType extends AbstractType
                     'label'    => 'clickandmortar.simpleitem.label.label',
                     'required' => true,
                 ]
-            )
-            ->add('value',
-                TextType::class,
-                [
-                    'label'    => 'clickandmortar.simpleitem.value.label',
-                    'required' => true,
-                ]
             );
     }
 

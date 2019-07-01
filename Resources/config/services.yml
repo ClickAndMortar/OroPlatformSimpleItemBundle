@@ -8,6 +8,9 @@ parameters:
     candm_simpleitem.simpleitem.manager.class: ClickAndMortar\SimpleItemBundle\Entity\Manager\SimpleItemManager
     candm_simpleitem.simplelist.manager.class: ClickAndMortar\SimpleItemBundle\Entity\Manager\SimpleListManager
 
+    # Listeners
+    candm_simpleitem.simpleitem.event_listener.class: ClickAndMortar\SimpleItemBundle\EventListener\SimpleItemListener
+
 services:
     # API Managers
     candm_simpleitem.simpleitem.manager.api:
@@ -16,6 +19,7 @@ services:
         arguments:
             - %candm_simpleitem.simpleitem.entity.class%
             - '@doctrine.orm.entity_manager'
+
     candm_simpleitem.simplelist.manager.api:
         class: %candm_simpleitem.simpleitem.manager.api.class%
         parent: oro_soap.manager.entity_manager.abstract
@@ -34,3 +38,9 @@ services:
         arguments:
         - %candm_simpleitem.simplelist.entity.class%
         - '@doctrine.orm.entity_manager'
+
+    # Listeners
+    candm_simpleitem.simpleitem.event_listener.:
+        class: %candm_simpleitem.simpleitem.event_listener.class%
+        tags:
+        - { name: doctrine.event_listener, event: prePersist }
