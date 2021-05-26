@@ -3,6 +3,6 @@ parameters:
 
 services:
     candm_simpleitem.form.type.simpleitem:
-        class: %candm_simpleitem.form.type.simpleitem.class%
+        class: '%candm_simpleitem.form.type.simpleitem.class%'
         tags:
             - { name: form.type, alias: candm_simpleitem_form_type_simpleitem }

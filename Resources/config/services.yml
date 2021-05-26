@@ -14,33 +14,33 @@ parameters:
 services:
     # API Managers
     candm_simpleitem.simpleitem.manager.api:
-        class: %candm_simpleitem.simpleitem.manager.api.class%
+        class: '%candm_simpleitem.simpleitem.manager.api.class%'
         parent: oro_soap.manager.entity_manager.abstract
         arguments:
-            - %candm_simpleitem.simpleitem.entity.class%
+            - '%candm_simpleitem.simpleitem.entity.class%'
             - '@doctrine.orm.entity_manager'
 
     candm_simpleitem.simplelist.manager.api:
-        class: %candm_simpleitem.simpleitem.manager.api.class%
+        class: '%candm_simpleitem.simpleitem.manager.api.class%'
         parent: oro_soap.manager.entity_manager.abstract
         arguments:
-            - %candm_simpleitem.simplelist.entity.class%
+            - '%candm_simpleitem.simplelist.entity.class%'
             - '@doctrine.orm.entity_manager'
 
     # Managers
     candm_simpleitem.simpleitem.manager:
-        class: %candm_simpleitem.simpleitem.manager.class%
+        class: '%candm_simpleitem.simpleitem.manager.class%'
         arguments:
-            - %candm_simpleitem.simpleitem.entity.class%
+            - '%candm_simpleitem.simpleitem.entity.class%'
             - '@doctrine.orm.entity_manager'
     candm_simpleitem.simplelist.manager:
-        class: %candm_simpleitem.simplelist.manager.class%
+        class: '%candm_simpleitem.simplelist.manager.class%'
         arguments:
-        - %candm_simpleitem.simplelist.entity.class%
+        - '%candm_simpleitem.simplelist.entity.class%'
         - '@doctrine.orm.entity_manager'
 
     # Listeners
     candm_simpleitem.simpleitem.event_listener.:
-        class: %candm_simpleitem.simpleitem.event_listener.class%
+        class: '%candm_simpleitem.simpleitem.event_listener.class%'
         tags:
         - { name: doctrine.event_listener, event: prePersist }

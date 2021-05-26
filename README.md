@@ -21,4 +21,10 @@ Run only following commands:
 php bin/console cache:clear
 php bin/console doctrine:schema:update --force
 php bin/console oro:entity-config:update --filter="ClickAndMortar*" --force
+php bin/console fos:js-routing:dump --no-interaction
+php bin/console oro:localization:dump --no-interaction
+php bin/console assets:install --symlink --relative --no-interaction
+php bin/console oro:assets:build --no-interaction
+php bin/console cache:clear --no-interaction
+php bin/console oro:translation:dump --no-interaction
 ```

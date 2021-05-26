@@ -11,7 +11,7 @@ services:
 
     # Template fixture
     candm_simpleitem.importexport.template_fixture.simplelist:
-        class: %candm_simpleitem.importexport.template_fixture.simplelist.class%
+        class: '%candm_simpleitem.importexport.template_fixture.simplelist.class%'
         tags:
             - { name: oro_importexport.template_fixture }
 
@@ -26,8 +26,8 @@ services:
             - [setDataConverter, ['@candm_simpleitem.importexport.data_converter']]
             - [setStrategy, ['@candm_simpleitem.importexport.strategy.add_or_replace']]
         tags:
-            - { name: oro_importexport.processor, type: import, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }
-            - { name: oro_importexport.processor, type: import_validation, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }
+            - { name: oro_importexport.processor, type: import, entity: '%candm_simpleitem.simplelist.entity.class%', alias: candm_simpleitem_simplelist }
+            - { name: oro_importexport.processor, type: import_validation, entity: '%candm_simpleitem.simplelist.entity.class%', alias: candm_simpleitem_simplelist }
 
     # Export processor
     candm_simpleitem.importexport.processor.export.simplelist:
@@ -35,7 +35,7 @@ services:
         calls:
             - [setDataConverter, ['@candm_simpleitem.importexport.data_converter']]
         tags:
-            - { name: oro_importexport.processor, type: export, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }
+            - { name: oro_importexport.processor, type: export, entity: '%candm_simpleitem.simplelist.entity.class%', alias: candm_simpleitem_simplelist }
 
     # Export template
     candm_simpleitem.importexport.processor.export_template.simplelist:
@@ -43,4 +43,4 @@ services:
         calls:
             - [setDataConverter, ['@candm_simpleitem.importexport.template_fixture.data_converter']]
         tags:
-            - { name: oro_importexport.processor, type: export_template, entity: %candm_simpleitem.simplelist.entity.class%, alias: candm_simpleitem_simplelist }
+            - { name: oro_importexport.processor, type: export_template, entity: '%candm_simpleitem.simplelist.entity.class%', alias: candm_simpleitem_simplelist }
