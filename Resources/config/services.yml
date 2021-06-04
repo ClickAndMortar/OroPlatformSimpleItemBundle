@@ -15,6 +15,7 @@ services:
     # API Managers
     candm_simpleitem.simpleitem.manager.api:
         class: '%candm_simpleitem.simpleitem.manager.api.class%'
+        public: true
         parent: oro_soap.manager.entity_manager.abstract
         arguments:
             - '%candm_simpleitem.simpleitem.entity.class%'
@@ -22,6 +23,7 @@ services:
 
     candm_simpleitem.simplelist.manager.api:
         class: '%candm_simpleitem.simpleitem.manager.api.class%'
+        public: true
         parent: oro_soap.manager.entity_manager.abstract
         arguments:
             - '%candm_simpleitem.simplelist.entity.class%'
@@ -30,11 +32,14 @@ services:
     # Managers
     candm_simpleitem.simpleitem.manager:
         class: '%candm_simpleitem.simpleitem.manager.class%'
+        public: true
         arguments:
             - '%candm_simpleitem.simpleitem.entity.class%'
             - '@doctrine.orm.entity_manager'
+
     candm_simpleitem.simplelist.manager:
         class: '%candm_simpleitem.simplelist.manager.class%'
+        public: true
         arguments:
         - '%candm_simpleitem.simplelist.entity.class%'
         - '@doctrine.orm.entity_manager'
