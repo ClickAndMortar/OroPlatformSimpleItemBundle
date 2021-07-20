@@ -1,0 +1,8 @@
+api:
+    entities:
+        ClickAndMortar\SimpleItemBundle\Entity\SimpleList:
+            actions:
+                update_list: true
+        ClickAndMortar\SimpleItemBundle\Entity\SimpleItem:
+            actions:
+                update_list: true
