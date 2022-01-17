@@ -4,8 +4,8 @@ namespace ClickAndMortar\SimpleItemBundle\Entity\Manager;
 
 use ClickAndMortar\SimpleItemBundle\Entity\Repository\SimpleItemRepository;
 use ClickAndMortar\SimpleItemBundle\Entity\SimpleItem;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectRepository;
 
 /**
  * Simple item manager

@@ -3,7 +3,7 @@
 namespace ClickAndMortar\SimpleItemBundle\Migrations\Data\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use ClickAndMortar\SimpleItemBundle\Entity\SimpleList;
 use ClickAndMortar\SimpleItemBundle\Entity\SimpleItem;
 
